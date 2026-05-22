@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}Synergy Hub Africa | Design • Build • Consultancy{% endblock %}</title>
+  <meta name="description" content="Synergy Hub Africa - Premium architectural design, building, and consultancy services. Transform your vision into reality.">
+  <meta name="keywords" content="architecture, design, build, consultancy, construction, Kenya, Africa">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="loader">
+      <div class="loader-icon">&#9670;</div>
+      <div class="loader-text">Synergy Hub Africa</div>
+      <div class="loader-bar"></div>
+    </div>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="navbar" id="navbar">
+    <div class="container">
+      <a href="/" class="nav-brand">
+        <div class="nav-brand-icon">&#9670;</div>
+        <div class="nav-brand-text">
+          <span class="nav-brand-name">SYNERGY HUB AFRICA</span>
+          <span class="nav-brand-tagline">Design | Build | Consultancy</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="/" {% if active_page == 'home' %}class="active"{% endif %}>Home</a></li>
+        <li><a href="/#about">About</a></li>
+        <li><a href="/#services">Services</a></li>
+        <li><a href="/#portfolio">Portfolio</a></li>
+        <li><a href="/#contact">Contact</a></li>
+        <li><a href="https://wa.me/254799609700?text=Hello%20Synergy%20Hub%20Africa!%20I'd%20like%20to%20inquire%20about%20your%20services." class="nav-cta" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a></li>
+      </ul>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <!-- Floating WhatsApp Buttons -->
+  <div class="floating-whatsapp">
+    <a href="https://wa.me/254799609700?text=Hello%20Synergy%20Hub%20Africa!%20I'd%20like%20to%20inquire%20about%20your%20services." target="_blank" class="floating-whatsapp-btn whatsapp-1" rel="noopener">
+      <i class="fab fa-whatsapp"></i>
+      <span class="floating-whatsapp-tooltip">Ezekiel: 0799609700</span>
+    </a>
+    <a href="https://wa.me/254794980508?text=Hello%20Synergy%20Hub%20Africa!%20I'd%20like%20to%20inquire%20about%20your%20services." target="_blank" class="floating-whatsapp-btn whatsapp-2" rel="noopener">
+      <i class="fab fa-whatsapp"></i>
+      <span class="floating-whatsapp-tooltip">Odera: 0794980508</span>
+    </a>
+  </div>
+
+  <!-- Scroll to Top -->
+  <button class="scroll-top" aria-label="Scroll to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="/" class="nav-brand">
+            <div class="nav-brand-icon">&#9670;</div>
+            <div class="nav-brand-text">
+              <span class="nav-brand-name">SYNERGY HUB AFRICA</span>
+              <span class="nav-brand-tagline">Design | Build | Consultancy</span>
+            </div>
+          </a>
+          <p>We are a premier design, build, and consultancy firm dedicated to transforming architectural visions into exceptional realities across Africa.</p>
+          <div class="footer-social">
+            <a href="https://wa.me/254799609700" target="_blank" aria-label="WhatsApp" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+            <a href="mailto:synergyhubafrica@gmail.com" aria-label="Email"><i class="far fa-envelope"></i></a>
+          </div>
+        </div>
+        <div>
+          <h4>Quick Links</h4>
+          <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="/#about">About Us</a>
+            <a href="/#services">Services</a>
+            <a href="/#portfolio">Portfolio</a>
+            <a href="/#contact">Contact</a>
+          </div>
+        </div>
+        <div>
+          <h4>Services</h4>
+          <div class="footer-links">
+            <a href="/#services">Design</a>
+            <a href="/#services">Build</a>
+            <a href="/#services">Consultancy</a>
+            <a href="/#services">Landscaping</a>
+            <a href="/#services">3D Visualization</a>
+          </div>
+        </div>
+        <div>
+          <h4>Contact Info</h4>
+          <div class="footer-links">
+            <a href="tel:+254799609700"><i class="fas fa-phone-alt" style="margin-right:8px;width:16px;"></i> +254 799 609 700</a>
+            <a href="tel:+254794980508"><i class="fas fa-phone-alt" style="margin-right:8px;width:16px;"></i> +254 794 980 508</a>
+            <a href="mailto:synergyhubafrica@gmail.com"><i class="far fa-envelope" style="margin-right:8px;width:16px;"></i> synergyhubafrica@gmail.com</a>
+            <a href="https://wa.me/254799609700" target="_blank"><i class="fab fa-whatsapp" style="margin-right:8px;width:16px;"></i> WhatsApp: 0799609700</a>
+            <a href="https://wa.me/254794980508" target="_blank"><i class="fab fa-whatsapp" style="margin-right:8px;width:16px;"></i> WhatsApp: 0794980508</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Synergy Hub Africa. All rights reserved. | Design | Build | Consultancy</p>
+        <div class="footer-bottom-links">
+          <a href="/">Home</a>
+          <a href="/#about">About</a>
+          <a href="/#contact">Contact</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  {% block extra_scripts %}{% endblock %}
+</body>
+</html>
