@@ -23,9 +23,48 @@
       text-align: center;
       padding: 20px;
     }
-    .error-container { max-width: 500px; }
+    .error-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .error-img {
+      display: block;
+      height: 100px;
+      width: auto;
+      margin-bottom: 30px;
+      filter: drop-shadow(0 0 20px rgba(200, 169, 110, 0.15));
+    }
+    .error-brand {
+      font-size: 1.2rem;
+      font-weight: 300;
+      letter-spacing: 8px;
+      text-transform: uppercase;
+      background: linear-gradient(135deg, #c8a96e, #e8d5a8, #c8a96e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 35px;
+    }
+    .error-bar {
+      width: 200px;
+      height: 2px;
+      background: #222;
+      border-radius: 2px;
+      overflow: hidden;
+      margin-bottom: 50px;
+    }
+    .error-bar::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 100%;
+      background: linear-gradient(135deg, #c8a96e, #a8883e);
+      border-radius: 2px;
+      animation: loading 1.5s ease-in-out infinite;
+    }
     .error-code {
-      font-size: 8rem;
+      font-size: 6rem;
       font-weight: 900;
       background: linear-gradient(135deg, #c8a96e, #e8d5a8, #c8a96e);
       -webkit-background-clip: text;
@@ -34,9 +73,9 @@
       line-height: 1;
     }
     .error-message {
-      font-size: 1.2rem;
+      font-size: 1rem;
       color: #999;
-      margin: 20px 0 40px;
+      margin: 15px 0 40px;
       letter-spacing: 2px;
     }
     .btn {
@@ -52,21 +91,26 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(200, 169, 110, 0.3); }
-    .error-divider {
-      width: 60px;
-      height: 2px;
-      background: linear-gradient(135deg, #c8a96e, #a8883e);
-      margin: 0 auto 20px;
-      border-radius: 2px;
+    @keyframes loading {
+      0% { transform: translateX(-60px); }
+      100% { transform: translateX(260px); }
     }
   </style>
 </head>
 <body>
   <div class="error-container">
+    <img src="{{ url_for('static', filename='images/synergy_logo.png') }}" alt="Synergy Hub Africa" class="error-img">
+    <div class="error-brand">Synergy Hub Africa</div>
+    <div class="error-bar"></div>
     <div class="error-code">{{ code }}</div>
-    <div class="error-divider"></div>
+    <div class="error-divider" style="width:60px;height:2px;background:linear-gradient(135deg,#c8a96e,#a8883e);margin:0 auto 15px;border-radius:2px"></div>
     <div class="error-message">{{ message }}</div>
     <a href="/" class="btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
   </div>
+  <script>
+    setTimeout(function() {
+      history.back();
+    }, 2000);
+  </script>
 </body>
 </html>
