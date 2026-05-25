@@ -159,6 +159,18 @@ document.addEventListener('DOMContentLoaded', () => {
   if (contactForm) {
     contactForm.addEventListener('submit', function(e) {
       e.preventDefault();
+
+      const name = this.querySelector('[name="name"]')?.value || '';
+      const email = this.querySelector('[name="email"]')?.value || '';
+      const phone = this.querySelector('[name="phone"]')?.value || '';
+      const service = this.querySelector('[name="service"]')?.value || '';
+      const message = this.querySelector('[name="message"]')?.value || '';
+
+      const body = `Name: ${name}%0AEmail: ${email}%0APhone: ${phone}%0AService: ${service}%0A%0AMessage:%0A${message}`;
+      const mailto = `mailto:synergyhubafrica@gmail.com?subject=New%20Inquiry%20from%20${encodeURIComponent(name)}&body=${body}`;
+
+      window.open(mailto, '_blank');
+
       const btn = this.querySelector('button[type="submit"]');
       const original = btn.innerHTML;
       btn.innerHTML = '✓ Message Sent!';
