@@ -99,6 +99,7 @@ img { max-width: 100%; display: block; }
     height: 100%;
     background: var(--dark);
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     z-index: 99999;
@@ -111,12 +112,26 @@ img { max-width: 100%; display: block; }
   }
 
   .loader {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
-  .loader-icon {
-    font-size: 3rem;
-    margin-bottom: 20px;
+  .loader-img {
+    display: block;
+    height: 80px;
+    width: auto;
+    margin-bottom: 50px;
+    filter: drop-shadow(0 0 20px rgba(200, 169, 110, 0.15));
+  }
+
+  .loader-divider {
+    width: 60px;
+    height: 2px;
+    background: var(--gold-gradient);
+    margin-bottom: 35px;
+    border-radius: 2px;
   }
 
   .loader-text {
@@ -134,7 +149,7 @@ img { max-width: 100%; display: block; }
     width: 200px;
     height: 2px;
     background: var(--dark-4);
-    margin: 20px auto 0;
+    margin-top: 20px;
     border-radius: 2px;
     overflow: hidden;
   }
@@ -190,6 +205,12 @@ img { max-width: 100%; display: block; }
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+.nav-brand-img {
+  height: 42px;
+  width: auto;
+  flex-shrink: 0;
 }
 
 .nav-brand-icon {
@@ -640,13 +661,18 @@ img { max-width: 100%; display: block; }
   position: relative;
   width: 100%;
   height: 450px;
-  background: linear-gradient(145deg, var(--dark-3), var(--dark-4));
-  border: 1px solid rgba(200, 169, 110, 0.15);
-  border-radius: 20px;
-  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.about-image-border::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('../images/synergy_logo.png') center / contain no-repeat;
+  opacity: 0.2;
+  pointer-events: none;
 }
 
 .about-image-icon {
@@ -671,6 +697,7 @@ img { max-width: 100%; display: block; }
   background-clip: text;
   line-height: 1;
   display: block;
+  opacity: 0.18;
 }
 
 .about-image-text span {
