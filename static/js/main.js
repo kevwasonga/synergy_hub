@@ -166,8 +166,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const service = this.querySelector('[name="service"]')?.value || '';
       const message = this.querySelector('[name="message"]')?.value || '';
 
-      const body = `Name: ${name}%0AEmail: ${email}%0APhone: ${phone}%0AService: ${service}%0A%0AMessage:%0A${message}`;
-      const mailto = `mailto:synergyhubafrica@gmail.com?subject=New%20Inquiry%20from%20${encodeURIComponent(name)}&body=${body}`;
+      const body = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nService: ${service}\n\nMessage:\n${message}`;
+      const mailto = `mailto:synergyhubafrica@gmail.com?subject=New%20Inquiry%20from%20${encodeURIComponent(name)}&body=${encodeURIComponent(body)}`;
 
       window.open(mailto, '_blank');
 
