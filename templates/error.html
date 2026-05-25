@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ code }} - Synergy Hub Africa</title>
+  <meta name="description" content="Synergy Hub Africa - {{ message }}">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/synergy_logo.png') }}">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0a0a0a;
+      color: #f5f5f5;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+    }
+    .error-container { max-width: 500px; }
+    .error-code {
+      font-size: 8rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #c8a96e, #e8d5a8, #c8a96e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+    .error-message {
+      font-size: 1.2rem;
+      color: #999;
+      margin: 20px 0 40px;
+      letter-spacing: 2px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 36px;
+      background: linear-gradient(135deg, #c8a96e, #a8883e);
+      color: #0a0a0a;
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 50px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(200, 169, 110, 0.3); }
+    .error-divider {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(135deg, #c8a96e, #a8883e);
+      margin: 0 auto 20px;
+      border-radius: 2px;
+    }
+  </style>
+</head>
+<body>
+  <div class="error-container">
+    <div class="error-code">{{ code }}</div>
+    <div class="error-divider"></div>
+    <div class="error-message">{{ message }}</div>
+    <a href="/" class="btn"><i class="fas fa-arrow-left"></i> Back to Home</a>
+  </div>
+</body>
+</html>
