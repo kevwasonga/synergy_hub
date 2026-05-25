@@ -10,6 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/synergy_logo.png') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   {% block extra_head %}{% endblock %}
 </head>
@@ -18,7 +19,8 @@
   <!-- Preloader -->
   <div id="preloader">
     <div class="loader">
-      <div class="loader-icon">&#9670;</div>
+      <img src="{{ url_for('static', filename='images/synergy_logo.png') }}" alt="Synergy Hub Africa" class="loader-img">
+      <div class="loader-divider"></div>
       <div class="loader-text">Synergy Hub Africa</div>
       <div class="loader-bar"></div>
     </div>
@@ -28,7 +30,7 @@
   <nav class="navbar" id="navbar">
     <div class="container">
       <a href="/" class="nav-brand">
-        <div class="nav-brand-icon">&#9670;</div>
+        <img src="{{ url_for('static', filename='images/synergy_logo.png') }}" alt="Synergy Hub Africa" class="nav-brand-img">
         <div class="nav-brand-text">
           <span class="nav-brand-name">SYNERGY HUB AFRICA</span>
           <span class="nav-brand-tagline">Design | Build | Consultancy</span>
@@ -78,7 +80,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="/" class="nav-brand">
-            <div class="nav-brand-icon">&#9670;</div>
+            <img src="{{ url_for('static', filename='images/synergy_logo.png') }}" alt="Synergy Hub Africa" class="nav-brand-img">
             <div class="nav-brand-text">
               <span class="nav-brand-name">SYNERGY HUB AFRICA</span>
               <span class="nav-brand-tagline">Design | Build | Consultancy</span>
