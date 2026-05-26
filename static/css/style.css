@@ -211,6 +211,16 @@ img { max-width: 100%; display: block; }
   height: 42px;
   width: auto;
   flex-shrink: 0;
+  filter: drop-shadow(0 0 12px rgba(200, 169, 110, 0.12));
+  transition: filter 0.3s ease;
+}
+
+.nav-brand:hover .nav-brand-img {
+  filter: drop-shadow(0 0 20px rgba(200, 169, 110, 0.25));
+}
+
+.navbar.scrolled .nav-brand-img {
+  filter: drop-shadow(0 0 10px rgba(200, 169, 110, 0.08));
 }
 
 .nav-brand-icon {
@@ -1270,6 +1280,14 @@ img { max-width: 100%; display: block; }
 
 .footer-brand .nav-brand-name {
   font-size: 1.3rem;
+}
+
+.footer-brand .nav-brand-img {
+  filter: drop-shadow(0 0 16px rgba(200, 169, 110, 0.15));
+}
+
+.footer-brand .nav-brand:hover .nav-brand-img {
+  filter: drop-shadow(0 0 28px rgba(200, 169, 110, 0.3));
 }
 
 .footer-brand p {
