@@ -429,20 +429,24 @@ img { max-width: 100%; display: block; }
 
 .hero-content {
   padding-top: 80px;
+  text-align: center;
 }
 
 .hero-badge {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 20px;
-  border: 1px solid rgba(200, 169, 110, 0.2);
+  gap: 10px;
+  padding: 10px 28px;
+  border: 1px solid rgba(200, 169, 110, 0.25);
   border-radius: 50px;
-  font-size: 0.75rem;
-  letter-spacing: 3px;
+  font-size: 0.85rem;
+  letter-spacing: 4px;
   text-transform: uppercase;
   color: var(--primary);
   margin-bottom: 30px;
+  background: rgba(200, 169, 110, 0.06);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
 .hero-badge-dot {
