@@ -120,8 +120,10 @@ img { max-width: 100%; display: block; }
 
   .loader-img {
     display: block;
-    height: 80px;
-    width: auto;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    object-fit: cover;
     margin-bottom: 50px;
     filter: drop-shadow(0 0 20px rgba(200, 169, 110, 0.15));
   }
@@ -204,12 +206,14 @@ img { max-width: 100%; display: block; }
 .nav-brand {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 20px;
 }
 
 .nav-brand-img {
-  height: 42px;
-  width: auto;
+  height: 60px;
+  width: 60px;
+  border-radius: 50%;
+  object-fit: cover;
   flex-shrink: 0;
   filter: drop-shadow(0 0 12px rgba(200, 169, 110, 0.12));
   transition: filter 0.3s ease;
