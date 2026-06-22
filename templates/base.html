@@ -2,15 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#0a0a0a">
   <title>{% block title %}Synergy Hub Africa | Design • Build • Consultancy{% endblock %}</title>
   <meta name="description" content="Synergy Hub Africa - Premium architectural design, building, and consultancy services. Transform your vision into reality.">
   <meta name="keywords" content="architecture, design, build, consultancy, construction, Kenya, Africa">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/synergy_logo.png') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-..." crossorigin="anonymous">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/Image_1.png') }}">
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='images/Image_1.png') }}">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
   {% block extra_head %}{% endblock %}
 </head>
@@ -19,7 +24,7 @@
   <!-- Preloader -->
   <div id="preloader">
     <div class="loader">
-      <img src="{{ url_for('static', filename='images/synergy_logo.png') }}" alt="Synergy Hub Africa" class="loader-img">
+      <img src="{{ url_for('static', filename='images/Image_1.png') }}" alt="Synergy Hub Africa" class="loader-img">
       <div class="loader-divider"></div>
       <div class="loader-text">Synergy Hub Africa</div>
       <div class="loader-bar"></div>
@@ -30,7 +35,7 @@
   <nav class="navbar" id="navbar">
     <div class="container">
       <a href="/" class="nav-brand">
-        <img src="{{ url_for('static', filename='images/synergy_logo.png') }}" alt="Synergy Hub Africa" class="nav-brand-img">
+        <img src="{{ url_for('static', filename='images/Image_1.png') }}" alt="Synergy Hub Africa" class="nav-brand-img">
         <div class="nav-brand-text">
           <span class="nav-brand-name">SYNERGY HUB AFRICA</span>
           <span class="nav-brand-tagline">Design | Build | Consultancy</span>
@@ -80,7 +85,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="/" class="nav-brand">
-            <img src="{{ url_for('static', filename='images/synergy_logo.png') }}" alt="Synergy Hub Africa" class="nav-brand-img">
+<img src="{{ url_for('static', filename='images/Image_1.png') }}" alt="Synergy Hub Africa" class="nav-brand-img">
             <div class="nav-brand-text">
               <span class="nav-brand-name">SYNERGY HUB AFRICA</span>
               <span class="nav-brand-tagline">Design | Build | Consultancy</span>
