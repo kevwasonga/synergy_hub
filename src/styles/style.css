@@ -111,7 +111,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .section-title {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(1.8rem, 4vw, 2.8rem);
   font-weight: 700;
   line-height: 1.15;
@@ -250,7 +250,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .loader-text {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 0.9rem;
   font-weight: 700;
   color: var(--gold);
@@ -326,7 +326,7 @@ img { max-width: 100%; height: auto; display: block; }
 .nav-brand-text { display: flex; flex-direction: column; }
 
 .nav-brand-name {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 0.95rem;
   font-weight: 700;
   color: var(--white);
@@ -498,7 +498,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .hero-title {
-  font-family: 'Playfair Display', Georgia, serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(2.4rem, 6vw, 4.2rem);
   font-weight: 800;
   line-height: 1.1;
@@ -547,7 +547,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .hero-stat-number {
-  font-family: 'Playfair Display', serif;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: clamp(1.8rem, 4vw, 2.6rem);
   font-weight: 800;
   color: var(--gold);
@@ -597,7 +597,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .about-image-badge .badge-num {
-  font-family: 'Playfair Display', serif;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 1.7rem;
   font-weight: 800;
   line-height: 1;
@@ -623,7 +623,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .about-img-placeholder span {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(4rem, 12vw, 7rem);
   font-weight: 900;
   color: var(--gold-border);
@@ -743,7 +743,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .service-card h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 1.15rem;
   font-weight: 700;
   color: var(--white);
@@ -759,7 +759,7 @@ img { max-width: 100%; height: auto; display: block; }
 .service-num {
   position: absolute;
   top: 18px; right: 22px;
-  font-family: 'Playfair Display', serif;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-size: 2.8rem;
   font-weight: 800;
   color: var(--gold);
@@ -812,7 +812,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .why-us-card h4 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 1.05rem;
   font-weight: 700;
   color: var(--white);
@@ -864,6 +864,15 @@ img { max-width: 100%; height: auto; display: block; }
   background: linear-gradient(160deg, var(--dark-3) 0%, var(--dark-2) 100%);
 }
 
+.portfolio-item--image .portfolio-item-inner {
+  background:
+    linear-gradient(180deg, rgba(10,10,10,0.15) 0%, rgba(10,10,10,0.4) 45%, rgba(10,10,10,0.92) 100%),
+    var(--pimg, url('/images/villa.jpg')) center/cover no-repeat;
+}
+
+.portfolio-item--image .portfolio-item-icon { opacity: 0.35; }
+.portfolio-item--image:hover .portfolio-item-icon { opacity: 0.55; }
+
 .portfolio-item-icon {
   position: absolute;
   top: 20px; right: 20px;
@@ -877,7 +886,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .portfolio-item h4 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 1.05rem;
   font-weight: 700;
   color: var(--white);
@@ -914,7 +923,7 @@ img { max-width: 100%; height: auto; display: block; }
 .portfolio-item:hover .portfolio-overlay { opacity: 1; }
 
 .portfolio-overlay h5 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 1rem;
   color: var(--gold);
   margin-bottom: 10px;
@@ -928,6 +937,14 @@ img { max-width: 100%; height: auto; display: block; }
 
 .portfolio-cta { text-align: center; margin-top: 48px; }
 
+/* Slow-hover zoom: card grows 20% after the mouse stays still for ~4s. */
+.portfolio-item.portfolio-item--zoomed {
+  transform: scale(1.2);
+  z-index: 6;
+  box-shadow: var(--shadow-lg);
+  border-color: var(--gold);
+}
+
 /* ============================================
    CONTACT
    ============================================ */
@@ -940,7 +957,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .contact-info h3 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: clamp(1.4rem, 3.5vw, 2rem);
   font-weight: 700;
   color: var(--white);
@@ -1009,6 +1026,12 @@ img { max-width: 100%; height: auto; display: block; }
 
 .contact-detail-text a:hover { color: var(--gold); }
 
+.contact-detail-text a[href^="tel"] {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+}
+
 .contact-whatsapp-buttons {
   display: flex;
   gap: 10px;
@@ -1025,7 +1048,7 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .contact-form-wrapper h4 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 1.35rem;
   font-weight: 700;
   color: var(--white);
@@ -1234,6 +1257,13 @@ img { max-width: 100%; height: auto; display: block; }
 }
 
 .footer-links a:hover { color: var(--gold); }
+
+.footer-links a[href^="tel"],
+.footer-links a[href^="https://wa.me"] {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+}
 
 .footer-links a .material-symbols-outlined {
   font-size: 15px;
