@@ -55,9 +55,6 @@ export default function Footer() {
           <div>
             <h4>Contact</h4>
             <div className="footer-links">
-              <a href="tel:+254799609700">
-                <span className="material-symbols-outlined">call</span>+254 799 609 700
-              </a>
               <a href="tel:+254794980508">
                 <span className="material-symbols-outlined">call</span>+254 794 980 508
               </a>
