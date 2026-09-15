@@ -80,6 +80,23 @@ a { text-decoration: none; color: inherit; }
 ul { list-style: none; }
 img { max-width: 100%; height: auto; display: block; }
 
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+body { touch-action: manipulation; }
+
+a,
+button,
+.portfolio-item,
+.hamburger,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
 .container {
   width: 100%;
   max-width: 1200px;
@@ -433,7 +450,10 @@ img { max-width: 100%; height: auto; display: block; }
    ============================================ */
 .hero {
   min-height: 100vh;
-  background: var(--dark);
+  background:
+    linear-gradient(180deg, rgba(10,10,10,0.42) 0%, rgba(10,10,10,0.78) 55%, var(--dark) 100%),
+    url('/images/hero.jpg') center 30% / cover no-repeat;
+  background-color: var(--dark);
   display: flex;
   align-items: center;
   position: relative;
@@ -768,6 +788,37 @@ img { max-width: 100%; height: auto; display: block; }
   user-select: none;
 }
 
+/* Light break section — ivory white, used sparingly to break the dark monotony */
+.section--light {
+  background: #faf7f1;
+  color: var(--dark);
+}
+
+.section--light .section-title {
+  color: #1a1a1a;
+}
+
+.section--light .section-subtitle {
+  color: #5c5548;
+}
+
+.section--light .section-divider { background: var(--gold-dark); }
+
+.section--light .service-card {
+  background: var(--white);
+  border-color: rgba(10, 10, 10, 0.08);
+  box-shadow: 0 6px 24px rgba(10, 10, 10, 0.05);
+}
+
+.section--light .service-card:hover {
+  border-color: rgba(200, 169, 110, 0.5);
+  box-shadow: 0 14px 40px rgba(10, 10, 10, 0.10);
+}
+
+.section--light .service-card h3 { color: #1a1a1a; }
+.section--light .service-card p { color: #5c5548; }
+.section--light .service-num { opacity: 0.10; }
+
 /* ============================================
    WHY US  (dark section)
    ============================================ */
@@ -920,7 +971,21 @@ img { max-width: 100%; height: auto; display: block; }
   text-align: center;
 }
 
-.portfolio-item:hover .portfolio-overlay { opacity: 1; }
+@media (hover: hover) and (pointer: fine) {
+  .portfolio-item:hover .portfolio-overlay { opacity: 1; }
+}
+
+/* Touch devices: keep the writings visible instead of hover-only */
+@media (hover: none) and (pointer: coarse) {
+  .portfolio-overlay {
+    opacity: 1;
+    align-items: flex-end;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 18px 20px 20px;
+    background: linear-gradient(180deg, rgba(10,10,10,0) 12%, rgba(10,10,10,0.92) 55%);
+  }
+}
 
 .portfolio-overlay h5 {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -1120,7 +1185,8 @@ img { max-width: 100%; height: auto; display: block; }
    ============================================ */
 .floating-whatsapp {
   position: fixed;
-  bottom: 28px; right: 28px;
+  bottom: calc(28px + env(safe-area-inset-bottom, 0px));
+  right: calc(28px + env(safe-area-inset-right, 0px));
   z-index: 999;
   display: flex;
   flex-direction: column;
@@ -1140,12 +1206,13 @@ img { max-width: 100%; height: auto; display: block; }
   box-shadow: var(--shadow-md);
   position: relative;
   text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 .floating-whatsapp-btn:hover { transform: scale(1.08); }
 .floating-whatsapp-btn:active { transform: scale(0.95); }
 .floating-whatsapp-btn.whatsapp-1 { background: var(--green); }
-.floating-whatsapp-btn.whatsapp-2 { background: #128C7E; }
 
 .floating-whatsapp-btn .material-symbols-outlined {
   font-size: 24px;
@@ -1166,6 +1233,9 @@ img { max-width: 100%; height: auto; display: block; }
   pointer-events: none;
   transition: var(--trans);
   box-shadow: var(--shadow-sm);
+  max-width: calc(100vw - 80px);
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .floating-whatsapp-tooltip::after {
@@ -1185,7 +1255,8 @@ img { max-width: 100%; height: auto; display: block; }
    ============================================ */
 .scroll-top {
   position: fixed;
-  bottom: 28px; left: 28px;
+  bottom: calc(28px + env(safe-area-inset-bottom, 0px));
+  left: calc(28px + env(safe-area-inset-left, 0px));
   width: 48px; height: 48px;
   border-radius: 50%;
   background: var(--gold);
@@ -1390,3 +1461,83 @@ img { max-width: 100%; height: auto; display: block; }
 
 @media (min-width: 1280px) { .container { padding: 0 40px; } }
 @media (min-width: 1920px) { .container { max-width: 1400px; } }
+
+/* ============================================
+   RESPONSIVE — tablets (900px)
+   ============================================ */
+@media (min-width: 900px) {
+  .services-grid { grid-template-columns: repeat(3, 1fr); }
+  .why-us-grid   { grid-template-columns: repeat(3, 1fr); }
+  .portfolio-grid{ grid-template-columns: repeat(3, 1fr); }
+}
+
+/* ============================================
+   RESPONSIVE — small phones (≤600px)
+   ============================================ */
+@media (max-width: 600px) {
+  .section { padding: 56px 0; }
+
+  .hero .container {
+    padding-top: 118px;
+    padding-bottom: 64px;
+    gap: 36px;
+  }
+  .hero-title { font-size: clamp(2rem, 10vw, 2.5rem); }
+  .hero-actions .btn { width: 100%; }
+  .hero-stats { gap: 14px 24px; padding-top: 26px; }
+  .hero-stat { flex: 1 1 40%; }
+
+  .hero {
+    background:
+      linear-gradient(180deg, rgba(10,10,10,0.55) 0%, rgba(10,10,10,0.85) 60%, var(--dark) 100%),
+      url('/images/hero.jpg') center 20% / cover no-repeat;
+    background-color: var(--dark);
+  }
+
+  .nav-brand-tagline { display: none; }
+
+  .contact-detail-item { padding: 16px; gap: 14px; }
+  .contact-whatsapp-buttons .btn { width: 100%; }
+  .contact-whatsapp-buttons { flex-direction: column; align-items: stretch; }
+
+  .footer-bottom { gap: 12px; text-align: center; }
+
+  .floating-whatsapp {
+    right: calc(16px + env(safe-area-inset-right, 0px));
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  }
+  .floating-whatsapp-tooltip { display: none; }
+  .scroll-top {
+    left: calc(16px + env(safe-area-inset-left, 0px));
+    bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+    width: 44px;
+    height: 44px;
+  }
+
+  /* Prevent iOS auto-zoom when focusing form fields */
+  .form-group input,
+  .form-group textarea,
+  .form-group select { font-size: 16px; }
+}
+
+/* ============================================
+   RESPONSIVE — notch / safe-area (iPhones)
+   ============================================ */
+.navbar,
+.navbar.scrolled {
+  padding-top: calc(12px + env(safe-area-inset-top, 0px));
+}
+
+/* ============================================
+   ACCESSIBILITY — reduced motion
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
