@@ -54,7 +54,7 @@ The site serves as a digital storefront, enabling potential clients to:
 - **Portfolio Hover Overlays** — Project cards reveal detailed descriptions on hover with smooth transitions
 
 ### Functional
-- **WhatsApp Integration** — Two dedicated WhatsApp contact buttons (0799609700 and 0794980508) via `wa.me` direct links, both as floating side buttons and in-page CTAs
+- **WhatsApp Integration** — Dedicated WhatsApp contact button (0794980508) via `wa.me` direct links, both as floating side buttons and in-page CTAs
 - **Contact Form** — In-page inquiry form with name, email, phone, service selection, and message fields
 - **Responsive Design** — Fully adaptive layout across desktop, tablet, and mobile viewports
 - **Scroll-to-Top Button** — Appears after scrolling past the fold for convenient navigation
@@ -211,7 +211,6 @@ The website provides **two WhatsApp contact channels** that link directly to cha
 
 | Contact     | Number        | WhatsApp Link                                                   |
 |-------------|---------------|-----------------------------------------------------------------|
-| Ezekiel     | `0799609700`  | [Chat on WhatsApp](https://wa.me/254799609700)                  |
 | Odera       | `0794980508`  | [Chat on WhatsApp](https://wa.me/254794980508)                  |
 
 ### Where WhatsApp Buttons Appear
@@ -326,9 +325,9 @@ Design | Build | Consultancy
 
 | Method        | Details                                |
 |---------------|----------------------------------------|
-| **Phone**     | +254 799 609 700 / +254 794 980 508    |
+| **Phone**     | +254 794 980 508    |
 | **Email**     | [synergyhubafrica@gmail.com](mailto:synergyhubafrica@gmail.com) |
-| **WhatsApp**  | [0799609700](https://wa.me/254799609700) / [0794980508](https://wa.me/254794980508) |
+| **WhatsApp**  | [0794980508](https://wa.me/254794980508) |
 
 ---
 
