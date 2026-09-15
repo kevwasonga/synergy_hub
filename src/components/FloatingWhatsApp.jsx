@@ -6,20 +6,10 @@ export default function FloatingWhatsApp() {
         target="_blank"
         rel="noopener noreferrer"
         className="floating-whatsapp-btn whatsapp-1"
-        aria-label="Chat with Ezekiel on WhatsApp"
+        aria-label="Chat with us on WhatsApp"
       >
         <span className="material-symbols-outlined">chat</span>
-        <span className="floating-whatsapp-tooltip">Ezekiel: +254 737 654264</span>
-      </a>
-      <a
-        href="https://wa.me/254794980508?text=Hello%20Synergy%20Hub%20Africa!%20I'd%20like%20to%20inquire%20about%20your%20services."
-        target="_blank"
-        rel="noopener noreferrer"
-        className="floating-whatsapp-btn whatsapp-2"
-        aria-label="Chat with Odera on WhatsApp"
-      >
-        <span className="material-symbols-outlined">chat</span>
-        <span className="floating-whatsapp-tooltip">Odera: +254 794 980508</span>
+        <span className="floating-whatsapp-tooltip">WhatsApp: +254 737 654264</span>
       </a>
     </div>
   )
