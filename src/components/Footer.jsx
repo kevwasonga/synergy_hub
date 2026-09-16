@@ -1,7 +1,31 @@
+import { useState, useEffect, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import logoImg from '../assets/logo.png'
 
+const WA_MSG = "Hello%20Synergy%20Hub%20Africa!%20I'd%20like%20to%20inquire%20about%20your%20services."
+
+const waOptions = [
+  { icon: 'call', label: '+254 794 980 508',  hint: 'Phone / WhatsApp', href: `https://wa.me/254794980508?text=${WA_MSG}` },
+  { icon: 'chat', label: '+254 737 654264',   hint: 'WhatsApp',         href: `https://wa.me/254737654264?text=${WA_MSG}` },
+]
+
 export default function Footer() {
+  const [waOpen, setWaOpen] = useState(false)
+  const ref = useRef(null)
+
+  useEffect(() => {
+    const onClick = (e) => {
+      if (ref.current && !ref.current.contains(e.target)) setWaOpen(false)
+    }
+    const onKey = (e) => { if (e.key === 'Escape') setWaOpen(false) }
+    document.addEventListener('click', onClick)
+    document.addEventListener('keydown', onKey)
+    return () => {
+      document.removeEventListener('click', onClick)
+      document.removeEventListener('keydown', onKey)
+    }
+  }, [])
+
   return (
     <footer className="footer">
       <div className="container">
@@ -18,9 +42,38 @@ export default function Footer() {
             </Link>
             <p>A premier design, build, and consultancy firm transforming architectural visions into exceptional realities across Africa.</p>
             <div className="footer-social">
-              <a href="https://wa.me/254737654264" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
-                <span className="material-symbols-outlined">chat</span>
-              </a>
+              <div className="footer-social-wa-wrap" ref={ref}>
+                <button
+                  className={`footer-social-btn footer-social-wa${waOpen ? ' open' : ''}`}
+                  onClick={() => setWaOpen(o => !o)}
+                  aria-label="WhatsApp contact options"
+                  aria-expanded={waOpen}
+                  aria-haspopup="menu"
+                >
+                  <span className="material-symbols-outlined">chat</span>
+                </button>
+                {waOpen && (
+                  <div className="footer-social-wa-dropdown" role="menu">
+                    {waOptions.map((o) => (
+                      <a
+                        key={o.label}
+                        href={o.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="nav-wa-option"
+                        role="menuitem"
+                        onClick={() => setWaOpen(false)}
+                      >
+                        <span className="material-symbols-outlined">{o.icon}</span>
+                        <span className="nav-wa-option-text">
+                          {o.label}
+                          <small>{o.hint}</small>
+                        </span>
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
               <a href="mailto:synergyhubafrica01@gmail.com" aria-label="Email">
                 <span className="material-symbols-outlined">mail</span>
               </a>
