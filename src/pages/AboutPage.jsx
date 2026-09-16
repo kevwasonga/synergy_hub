@@ -17,7 +17,7 @@ export default function AboutPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="hero" id="about-hero">
+      <section className="hero hero--inner" id="about-hero">
         <div className="container">
           <div className="hero-content">
             <div className="hero-badge">

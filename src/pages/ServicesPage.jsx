@@ -33,7 +33,7 @@ export default function ServicesPage() {
   return (
     <>
       {/* ── HERO ── */}
-      <section className="hero" id="services-hero">
+      <section className="hero hero--inner" id="services-hero">
         <div className="container">
           <div className="hero-content">
             <div className="hero-badge">
