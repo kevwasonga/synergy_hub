@@ -1050,7 +1050,7 @@ textarea {
 .portfolio-item--image .portfolio-item-inner {
   background:
     linear-gradient(180deg, rgba(10,10,10,0.15) 0%, rgba(10,10,10,0.4) 45%, rgba(10,10,10,0.92) 100%),
-    var(--pimg, url('/images/villa.jpg')) center/cover no-repeat;
+    var(--pimg, url('/images/modern-luxury-villa.jpg')) center/cover no-repeat;
 }
 
 .portfolio-item-icon {
