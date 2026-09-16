@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useReveal } from '../hooks/useReveal'
+import logoImg from '../assets/logo.png'
 
 const MS = ({ children, fill = 0, wght = 400 }) => (
   <span
@@ -14,7 +15,7 @@ const services = [
   { icon: 'architecture',   num: '01', title: 'Architectural Design',   desc: 'Innovative, sustainable designs that blend functionality with aesthetic appeal — detailed drawings, planning approvals, and 3D master plans.' },
   { icon: 'construction',   num: '02', title: 'Build & Construction',    desc: 'Full-scale construction management and execution with meticulous attention to detail. Quality workmanship and timely delivery, every time.' },
   { icon: 'forum',          num: '03', title: 'Project Consultancy',     desc: 'Expert advisory services guiding you through every phase — strategic insights, feasibility studies, and practical solutions for complex challenges.' },
-  { icon: 'interior_design',num: '04', title: 'Interior Design',         desc: 'Creating spaces that reflect your identity and maximise functionality — bespoke solutions for residential, commercial, and hospitality projects.' },
+  { icon: 'interior_design',num: '04', title: 'Interior Design',         desc: 'Creating spaces that reflect your identity and maximise functionality — bespoke solutions for residential, commercial, and hospitality projects.', logo: true },
   { icon: 'park',           num: '05', title: 'Urban Landscaping',       desc: 'Sustainable landscapes that connect people with nature. Indigenous flora, water features, and irrigation systems for any scale of development.' },
   { icon: 'view_in_ar',     num: '06', title: '3D Visualisation',        desc: 'Photorealistic renderings and immersive virtual walkthroughs so you can see and feel your project before a single stone is laid.' },
 ]
@@ -79,7 +80,11 @@ export default function ServicesPage() {
             {services.map((s, i) => (
               <div className={`service-card reveal reveal-delay-${(i % 3) + 1}`} key={s.num}>
                 <div className="service-icon-wrap">
-                  <MS fill={0} wght={300}>{s.icon}</MS>
+                  {s.logo ? (
+                    <img src={logoImg} alt="" className="service-logo-icon" aria-hidden="true" />
+                  ) : (
+                    <MS fill={0} wght={300}>{s.icon}</MS>
+                  )}
                 </div>
                 <h3>{s.title}</h3>
                 <p>{s.desc}</p>

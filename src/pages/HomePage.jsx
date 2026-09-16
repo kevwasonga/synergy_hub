@@ -249,13 +249,17 @@ export default function HomePage() {
               { icon: 'architecture',   num: '01', title: 'Architectural Design',  desc: 'Stunning concepts that merge aesthetic excellence with functional practicality — detailed drawings, 3D visualisations, and master plans.' },
               { icon: 'construction',   num: '02', title: 'Build & Construction',   desc: 'From groundbreaking to completion, expert craftsmanship managing every aspect — quality, safety, timelines, and budgets.' },
               { icon: 'forum',          num: '03', title: 'Project Consultancy',    desc: 'Expert guidance on design, project management, feasibility studies, and technical reviews at every stage of your project.' },
-              { icon: 'interior_design',num: '04', title: 'Interior Design',        desc: 'Bespoke interiors that reflect your identity and maximise functionality — residential, corporate, and hospitality.' },
+              { icon: 'interior_design',num: '04', title: 'Interior Design',        desc: 'Bespoke interiors that reflect your identity and maximise functionality — residential, corporate, and hospitality.', logo: true },
               { icon: 'park',           num: '05', title: 'Urban Landscaping',      desc: 'Sustainable landscapes that connect people with nature and enhance the quality of your property.' },
               { icon: 'view_in_ar',     num: '06', title: '3D Visualisation',       desc: 'Photorealistic renderings and virtual walkthroughs so you can experience your project before construction begins.' },
             ].map((s, i) => (
               <div className={`service-card reveal reveal-delay-${(i % 3) + 1}`} key={s.num}>
                 <div className="service-icon-wrap">
-                  <MS fill={0} wght={300}>{s.icon}</MS>
+                  {s.logo ? (
+                    <img src={logoImg} alt="" className="service-logo-icon" aria-hidden="true" />
+                  ) : (
+                    <MS fill={0} wght={300}>{s.icon}</MS>
+                  )}
                 </div>
                 <h3>{s.title}</h3>
                 <p>{s.desc}</p>
