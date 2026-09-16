@@ -21,7 +21,7 @@ export default function Footer() {
               <a href="https://wa.me/254737654264" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
                 <span className="material-symbols-outlined">chat</span>
               </a>
-              <a href="mailto:synergyhubafrica@gmail.com" aria-label="Email">
+              <a href="mailto:synergyhubafrica01@gmail.com" aria-label="Email">
                 <span className="material-symbols-outlined">mail</span>
               </a>
             </div>
@@ -58,8 +58,8 @@ export default function Footer() {
               <a href="tel:+254794980508">
                 <span className="material-symbols-outlined">call</span>+254 794 980 508
               </a>
-              <a href="mailto:synergyhubafrica@gmail.com">
-                <span className="material-symbols-outlined">mail</span>synergyhubafrica@gmail.com
+              <a href="mailto:synergyhubafrica01@gmail.com">
+                <span className="material-symbols-outlined">mail</span>synergyhubafrica01@gmail.com
               </a>
               <a href="https://wa.me/254737654264" target="_blank" rel="noopener noreferrer">
                 <span className="material-symbols-outlined">chat</span>WhatsApp: +254 737 654264

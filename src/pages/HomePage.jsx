@@ -31,7 +31,7 @@ export default function HomePage() {
     const get = (n) => f.querySelector(`[name="${n}"]`)?.value || ''
     const name    = get('name')
     const body = `Name: ${name}\nEmail: ${get('email')}\nPhone: ${get('phone')}\nService: ${get('service')}\n\nMessage:\n${get('message')}`
-    const mailto = `mailto:synergyhubafrica@gmail.com?subject=New%20Inquiry%20from%20${encodeURIComponent(name)}&body=${encodeURIComponent(body)}`
+    const mailto = `mailto:synergyhubafrica01@gmail.com?subject=New%20Inquiry%20from%20${encodeURIComponent(name)}&body=${encodeURIComponent(body)}`
 
     // Try the native mail client, but watch for a blocked popup / missing client.
     const opened = window.open(mailto, '_blank')
@@ -312,7 +312,7 @@ export default function HomePage() {
                   <div className="contact-icon"><MS fill={1} wght={400}>mail</MS></div>
                   <div className="contact-detail-text">
                     <h4>Email</h4>
-                    <p><a href="mailto:synergyhubafrica@gmail.com">synergyhubafrica@gmail.com</a></p>
+                    <p><a href="mailto:synergyhubafrica01@gmail.com">synergyhubafrica01@gmail.com</a></p>
                   </div>
                 </div>
 

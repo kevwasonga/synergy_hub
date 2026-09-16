@@ -326,7 +326,7 @@ Design | Build | Consultancy
 | Method        | Details                                |
 |---------------|----------------------------------------|
 | **Phone**     | +254 794 980 508    |
-| **Email**     | [synergyhubafrica@gmail.com](mailto:synergyhubafrica@gmail.com) |
+| **Email**     | [synergyhubafrica01@gmail.com](mailto:synergyhubafrica01@gmail.com) |
 | **WhatsApp**  | [0794980508](https://wa.me/254794980508) |
 
 ---
