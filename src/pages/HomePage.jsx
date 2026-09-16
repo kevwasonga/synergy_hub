@@ -27,14 +27,19 @@ export default function HomePage() {
   useReveal()
   useCounters('.hero-stat-number')
 
-  const [waHeroOpen, setWaHeroOpen] = useState(false)
-  const waHeroRef = useRef(null)
+  const [waHeroOpen, setWaHeroOpen]       = useState(false)
+  const [contactWaOpen, setContactWaOpen] = useState(false)
+  const waHeroRef                         = useRef(null)
+  const contactWaRef                      = useRef(null)
 
   useEffect(() => {
     const onClick = (e) => {
       if (waHeroRef.current && !waHeroRef.current.contains(e.target)) setWaHeroOpen(false)
+      if (contactWaRef.current && !contactWaRef.current.contains(e.target)) setContactWaOpen(false)
     }
-    const onKey = (e) => { if (e.key === 'Escape') setWaHeroOpen(false) }
+    const onKey = (e) => {
+      if (e.key === 'Escape') { setWaHeroOpen(false); setContactWaOpen(false) }
+    }
     document.addEventListener('click', onClick)
     document.addEventListener('keydown', onKey)
     return () => {
@@ -369,13 +374,37 @@ export default function HomePage() {
                     <h4>WhatsApp</h4>
                     <p>Chat with us directly:</p>
                     <div className="contact-whatsapp-buttons">
-                      <a
-                        href="https://wa.me/254737654264?text=Hello%20Synergy%20Hub%20Africa!"
-                        target="_blank" rel="noopener noreferrer"
-                        className="btn btn-whatsapp"
-                      >
-                        <MS fill={1}>chat</MS> +254 737 654264
-                      </a>
+                      <div className="contact-wa-wrap" ref={contactWaRef}>
+                        <button
+                          className={`btn btn-whatsapp${contactWaOpen ? ' open' : ''}`}
+                          onClick={() => setContactWaOpen(o => !o)}
+                          aria-expanded={contactWaOpen}
+                          aria-haspopup="menu"
+                        >
+                          <MS fill={1}>chat</MS> +254 737 654264 <MS fill={0}>arrow_drop_down</MS>
+                        </button>
+                        {contactWaOpen && (
+                          <div className="contact-wa-dropdown" role="menu" aria-label="WhatsApp contact options">
+                            {waOptions.map((o) => (
+                              <a
+                                key={o.label}
+                                href={o.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="nav-wa-option"
+                                role="menuitem"
+                                onClick={() => setContactWaOpen(false)}
+                              >
+                                <span className="material-symbols-outlined">{o.icon}</span>
+                                <span className="nav-wa-option-text">
+                                  {o.label}
+                                  <small>{o.hint}</small>
+                                </span>
+                              </a>
+                            ))}
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </div>
