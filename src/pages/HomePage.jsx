@@ -400,14 +400,34 @@ export default function HomePage() {
 function PortfolioItem({ p, i }) {
   const [zoomed, setZoomed] = useState(false)
   const [imgFailed, setImgFailed] = useState(false)
+  const [nearView, setNearView] = useState(false)
   const timerRef = useRef(null)
+  const itemRef = useRef(null)
 
   useEffect(() => {
-    if (!p.img || imgFailed) return
+    const el = itemRef.current
+    if (!el) return
+    const obs = new IntersectionObserver(
+      (entries) => entries.forEach((en) => {
+        if (en.isIntersecting) {
+          setNearView(true)
+          obs.disconnect()
+        }
+      }),
+      { rootMargin: '300px 0px' }
+    )
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [])
+
+  useEffect(() => {
+    if (!nearView || !p.img || imgFailed) return
     const probe = new Image()
     probe.onerror = () => setImgFailed(true)
     probe.src = p.img
-  }, [p.img, imgFailed])
+  }, [nearView, p.img, imgFailed])
+
+  const showImage = nearView && p.img && !imgFailed
 
   const armZoom = () => {
     clearTimeout(timerRef.current)
@@ -433,7 +453,8 @@ function PortfolioItem({ p, i }) {
 
   return (
     <div
-      className={`portfolio-item reveal reveal-delay-${(i % 3) + 1}${p.img && !imgFailed ? ' portfolio-item--image' : ''}${zoomed ? ' portfolio-item--zoomed' : ''}`}
+      ref={itemRef}
+      className={`portfolio-item reveal reveal-delay-${(i % 3) + 1}${showImage ? ' portfolio-item--image' : ''}${zoomed ? ' portfolio-item--zoomed' : ''}`}
       onMouseEnter={handleEnter}
       onMouseMove={handleMove}
       onMouseLeave={handleLeave}
@@ -442,7 +463,7 @@ function PortfolioItem({ p, i }) {
       onTouchEnd={handleLeave}
       onTouchCancel={handleLeave}
     >
-      <div className="portfolio-item-inner" style={p.img && !imgFailed ? { '--pimg': `url(${p.img})` } : null}>
+      <div className="portfolio-item-inner" style={showImage ? { '--pimg': `url(${p.img})` } : null}>
         <div className="portfolio-item-icon">
           <MS fill={1} wght={300}>{p.icon}</MS>
         </div>

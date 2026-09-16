@@ -5,8 +5,8 @@ export default function Preloader() {
   const [hidden, setHidden] = useState(false)
 
   useEffect(() => {
-    const timer = setTimeout(() => setHidden(true), 2000)
-    const onLoad = () => setTimeout(() => setHidden(true), 400)
+    const timer = setTimeout(() => setHidden(true), 1200)
+    const onLoad = () => setTimeout(() => setHidden(true), 250)
     window.addEventListener('load', onLoad)
     return () => { clearTimeout(timer); window.removeEventListener('load', onLoad) }
   }, [])

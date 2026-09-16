@@ -11,9 +11,12 @@ import ServicesPage from './pages/ServicesPage'
 export default function App() {
   return (
     <>
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
       <Preloader />
       <Navbar />
-      <main>
+      <main id="main-content">
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutPage />} />
