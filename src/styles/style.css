@@ -1034,14 +1034,20 @@ textarea {
     var(--pimg, url('/images/villa.jpg')) center/cover no-repeat;
 }
 
-.portfolio-item--image .portfolio-item-icon { opacity: 0.35; }
-.portfolio-item--image:hover .portfolio-item-icon { opacity: 0.55; }
-
 .portfolio-item-icon {
   position: absolute;
-  top: 20px; right: 20px;
-  opacity: 0.08;
+  top: 20px; left: 20px;
+  opacity: 0.85;
+  transition: var(--trans);
 }
+
+.portfolio-item--image .portfolio-item-icon {
+  left: auto;
+  right: 20px;
+  opacity: 0.35;
+}
+
+.portfolio-item--image:hover .portfolio-item-icon { opacity: 0.55; }
 
 .portfolio-item-icon .material-symbols-outlined {
   font-size: 60px;

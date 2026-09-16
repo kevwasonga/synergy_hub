@@ -1,4 +1,4 @@
-import { useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useReveal }   from '../hooks/useReveal'
 import { useCounters } from '../hooks/useCounters'
 
@@ -161,7 +161,7 @@ export default function HomePage() {
       {/* ══════════════════════════════════════════
           SERVICES
       ══════════════════════════════════════════ */}
-      <section className="services section" id="services">
+      <section className="services section section--light" id="services">
         <div className="container">
           <div className="section-header">
             <div className="section-eyebrow"><MS fill={1} wght={500}>category</MS> What We Do</div>
@@ -238,31 +238,13 @@ export default function HomePage() {
           </div>
           <div className="portfolio-grid">
             {[
-              { icon: 'villa',          title: 'Luxury Residence',    loc: 'Nairobi, Kenya',  h5: 'Modern Luxury Villa',      desc: 'A stunning 5-bedroom residence featuring contemporary African design, sustainable materials, and panoramic views of the Nairobi skyline.' },
-              { icon: 'corporate_fare', title: 'Commercial Tower',    loc: 'Nairobi, Kenya',  h5: 'Green Business Park',      desc: 'Eco-friendly complex with smart technology, rooftop gardens, and energy-efficient systems across 20 premium floors.' },
-              { icon: 'forest',         title: 'Landscape Design',    loc: 'Mombasa, Kenya',  h5: 'Coastal Resort Gardens',   desc: 'Tropical landscape featuring indigenous flora, water features, and sustainable irrigation for a premier beachfront resort.' },
-              { icon: 'location_city',  title: 'Urban Development',   loc: 'Kisumu, Kenya',   h5: 'Lakeside Estates',         desc: 'Master-planned community of 200 homes with integrated green spaces set against the shores of Lake Victoria.' },
-              { icon: 'weekend',        title: 'Interior Design',     loc: 'Nairobi, Kenya',  h5: 'Executive Office Suites',  desc: 'Premium fit-out combining minimalism with African craftsmanship across 3 executive floors for a multinational corporation.' },
-              { icon: 'account_balance',title: 'Heritage Restoration',loc: 'Lamu, Kenya',     h5: 'Swahili Heritage Hotel',   desc: 'Thoughtful restoration of a 19th-century Swahili stone house into a boutique hotel, preserving original features with modern amenities.' },
-            ].map((p, i) => (
-              <div className={`portfolio-item reveal reveal-delay-${(i % 3) + 1}`} key={p.title}>
-                <div className="portfolio-item-inner">
-                  <div className="portfolio-item-icon">
-                    <MS fill={1} wght={300}>{p.icon}</MS>
-                  </div>
-                  <h4>{p.title}</h4>
-                  <p className="portfolio-loc">
-                    <MS fill={1} wght={400}>location_on</MS>{p.loc}
-                  </p>
-                </div>
-                <div className="portfolio-overlay">
-                  <div className="portfolio-overlay-content">
-                    <h5>{p.h5}</h5>
-                    <p>{p.desc}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
+              { icon: 'villa', img: '/images/villa.jpg',          title: 'Luxury Residence',    loc: 'Nairobi, Kenya',  h5: 'Modern Luxury Villa',      desc: 'A stunning 5-bedroom residence featuring contemporary African design, sustainable materials, and panoramic views of the Nairobi skyline.' },
+              { icon: 'corporate_fare', img: '/images/commercial.jpg', title: 'Commercial Tower',    loc: 'Nairobi, Kenya',  h5: 'Green Business Park',      desc: 'Eco-friendly complex with smart technology, rooftop gardens, and energy-efficient systems across 20 premium floors.' },
+              { icon: 'forest',         img: '/images/landscape.jpg',  title: 'Landscape Design',    loc: 'Mombasa, Kenya',  h5: 'Coastal Resort Gardens',   desc: 'Tropical landscape featuring indigenous flora, water features, and sustainable irrigation for a premier beachfront resort.' },
+              { icon: 'location_city',  img: '/images/urban.jpg',      title: 'Urban Development',   loc: 'Kisumu, Kenya',   h5: 'Lakeside Estates',         desc: 'Master-planned community of 200 homes with integrated green spaces set against the shores of Lake Victoria.' },
+              { icon: 'weekend',        img: '/images/interior.jpg',   title: 'Interior Design',     loc: 'Nairobi, Kenya',  h5: 'Executive Office Suites',  desc: 'Premium fit-out combining minimalism with African craftsmanship across 3 executive floors for a multinational corporation.' },
+              { icon: 'account_balance',img: '/images/heritage.jpg',   title: 'Heritage Restoration',loc: 'Lamu, Kenya',     h5: 'Swahili Heritage Hotel',   desc: 'Thoughtful restoration of a 19th-century Swahili stone house into a boutique hotel, preserving original features with modern amenities.' },
+            ].map((p, i) => <PortfolioItem p={p} i={i} key={p.title} />)}
           </div>
           <div className="portfolio-cta reveal">
             <a
@@ -301,7 +283,6 @@ export default function HomePage() {
                   <div className="contact-icon"><MS fill={1} wght={400}>call</MS></div>
                   <div className="contact-detail-text">
                     <h4>Phone</h4>
-                    <p><a href="tel:+254799609700">+254 799 609 700</a></p>
                     <p><a href="tel:+254794980508">+254 794 980 508</a></p>
                   </div>
                 </div>
@@ -380,6 +361,73 @@ export default function HomePage() {
         </div>
       </section>
     </>
+  )
+}
+
+/* ─────────────────────────────────────────────
+   Portfolio card — image + slow-hover zoom
+───────────────────────────────────────────── */
+function PortfolioItem({ p, i }) {
+  const [zoomed, setZoomed] = useState(false)
+  const [imgFailed, setImgFailed] = useState(false)
+  const timerRef = useRef(null)
+
+  useEffect(() => {
+    if (!p.img || imgFailed) return
+    const probe = new Image()
+    probe.onerror = () => setImgFailed(true)
+    probe.src = p.img
+  }, [p.img, imgFailed])
+
+  const armZoom = () => {
+    clearTimeout(timerRef.current)
+    timerRef.current = setTimeout(() => setZoomed(true), 4000)
+  }
+
+  const handleEnter = () => {
+    setZoomed(false)
+    armZoom()
+  }
+
+  const handleMove = () => {
+    setZoomed(false)
+    armZoom()
+  }
+
+  const handleLeave = () => {
+    clearTimeout(timerRef.current)
+    setZoomed(false)
+  }
+
+  useEffect(() => () => clearTimeout(timerRef.current), [])
+
+  return (
+    <div
+      className={`portfolio-item reveal reveal-delay-${(i % 3) + 1}${p.img && !imgFailed ? ' portfolio-item--image' : ''}${zoomed ? ' portfolio-item--zoomed' : ''}`}
+      onMouseEnter={handleEnter}
+      onMouseMove={handleMove}
+      onMouseLeave={handleLeave}
+      onTouchStart={handleEnter}
+      onTouchMove={handleMove}
+      onTouchEnd={handleLeave}
+      onTouchCancel={handleLeave}
+    >
+      <div className="portfolio-item-inner" style={p.img && !imgFailed ? { '--pimg': `url(${p.img})` } : null}>
+        <div className="portfolio-item-icon">
+          <MS fill={1} wght={300}>{p.icon}</MS>
+        </div>
+        <h4>{p.title}</h4>
+        <p className="portfolio-loc">
+          <MS fill={1} wght={400}>location_on</MS>{p.loc}
+        </p>
+      </div>
+      <div className="portfolio-overlay">
+        <div className="portfolio-overlay-content">
+          <h5>{p.h5}</h5>
+          <p>{p.desc}</p>
+        </div>
+      </div>
+    </div>
   )
 }
 
