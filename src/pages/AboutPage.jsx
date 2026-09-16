@@ -1,5 +1,6 @@
 import { useEffect } from 'react'
 import { useReveal } from '../hooks/useReveal'
+import logoImg from '../assets/logo.png'
 
 const MS = ({ children, fill = 0, wght = 400 }) => (
   <span
@@ -42,7 +43,7 @@ export default function AboutPage() {
           <div className="about-grid">
             <div className="about-image-frame reveal">
               <div className="about-img-placeholder">
-                <span>SHA</span>
+                <img src={logoImg} alt="" className="about-logo-watermark" aria-hidden="true" />
               </div>
               <div className="about-image-badge">
                 <div className="badge-num">12+</div>

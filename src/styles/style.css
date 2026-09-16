@@ -774,12 +774,12 @@ textarea {
   background: linear-gradient(135deg, var(--dark-3) 0%, var(--dark-4) 100%);
 }
 
-.about-img-placeholder span {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  font-size: clamp(4rem, 12vw, 7rem);
-  font-weight: 900;
-  color: var(--gold-border);
-  letter-spacing: 0.1em;
+.about-logo-watermark {
+  width: 55%;
+  height: auto;
+  opacity: 0.10;
+  filter: grayscale(1);
+  pointer-events: none;
   user-select: none;
 }
 

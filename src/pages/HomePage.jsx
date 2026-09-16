@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 import { useReveal }   from '../hooks/useReveal'
 import { useCounters } from '../hooks/useCounters'
+import logoImg from '../assets/logo.png'
 
 /* Tiny helper so JSX stays readable */
 const MS = ({ children, fill = 0, wght = 400, size }) => (
@@ -134,7 +135,7 @@ export default function HomePage() {
             {/* Image frame */}
             <div className="about-image-frame reveal">
               <div className="about-img-placeholder">
-                <span>SHA</span>
+                <img src={logoImg} alt="" className="about-logo-watermark" aria-hidden="true" />
               </div>
               <div className="about-image-badge">
                 <div className="badge-num">2014</div>
