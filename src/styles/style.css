@@ -38,7 +38,7 @@
   /* Text */
   --text:        #f0ede8;
   --text-mid:    #b8b0a4;
-  --text-muted:  #7a7268;
+  --text-muted:  #9c9286;
 
   /* Utility */
   --white:       #ffffff;
@@ -85,7 +85,7 @@ img { max-width: 100%; height: auto; display: block; }
   outline-offset: 2px;
 }
 
-body { touch-action: manipulation; }
+body { touch-action: pan-x pan-y; }
 
 a,
 button,
@@ -95,6 +95,7 @@ input,
 select,
 textarea {
   -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
 }
 
 .container {
@@ -1608,15 +1609,6 @@ textarea {
 
 @media (min-width: 1280px) { .container { padding: 0 40px; } }
 @media (min-width: 1920px) { .container { max-width: 1400px; } }
-
-/* ============================================
-   RESPONSIVE — tablets (900px)
-   ============================================ */
-@media (min-width: 900px) {
-  .services-grid { grid-template-columns: repeat(3, 1fr); }
-  .why-us-grid   { grid-template-columns: repeat(3, 1fr); }
-  .portfolio-grid{ grid-template-columns: repeat(3, 1fr); }
-}
 
 /* ============================================
    RESPONSIVE — small phones (≤600px)
