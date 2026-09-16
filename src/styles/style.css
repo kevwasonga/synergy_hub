@@ -667,6 +667,24 @@ textarea {
   flex-wrap: wrap;
 }
 
+.hero-wa-wrap { position: relative; }
+
+.hero-wa-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  min-width: 236px;
+  background: var(--dark-2);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius-md);
+  padding: 6px;
+  box-shadow: var(--shadow-md);
+  z-index: 20;
+  animation: waNavIn 0.18s ease;
+}
+
+.btn-whatsapp.open { background: var(--green-dark); }
+
 .hero-visual { display: none; }
 
 /* Stats */
@@ -1837,6 +1855,8 @@ textarea {
   }
   .hero-title { font-size: clamp(2rem, 10vw, 2.5rem); }
   .hero-actions .btn { width: 100%; }
+  .hero-actions .hero-wa-wrap { width: 100%; }
+  .hero-actions .hero-wa-dropdown { left: 0; right: 0; }
   .hero-stats { gap: 14px 24px; padding-top: 26px; }
   .hero-stat { flex: 1 1 40%; }
 

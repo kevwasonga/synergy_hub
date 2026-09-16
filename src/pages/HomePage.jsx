@@ -16,9 +16,32 @@ const MS = ({ children, fill = 0, wght = 400, size }) => (
   </span>
 )
 
+const WA_MSG = "Hello%20Synergy%20Hub%20Africa!%20I'd%20like%20to%20inquire%20about%20your%20services."
+
+const waOptions = [
+  { icon: 'call', label: '+254 794 980 508',  hint: 'Phone / WhatsApp', href: `https://wa.me/254794980508?text=${WA_MSG}` },
+  { icon: 'chat', label: '+254 737 654264',   hint: 'WhatsApp',         href: `https://wa.me/254737654264?text=${WA_MSG}` },
+]
+
 export default function HomePage() {
   useReveal()
   useCounters('.hero-stat-number')
+
+  const [waHeroOpen, setWaHeroOpen] = useState(false)
+  const waHeroRef = useRef(null)
+
+  useEffect(() => {
+    const onClick = (e) => {
+      if (waHeroRef.current && !waHeroRef.current.contains(e.target)) setWaHeroOpen(false)
+    }
+    const onKey = (e) => { if (e.key === 'Escape') setWaHeroOpen(false) }
+    document.addEventListener('click', onClick)
+    document.addEventListener('keydown', onKey)
+    return () => {
+      document.removeEventListener('click', onClick)
+      document.removeEventListener('keydown', onKey)
+    }
+  }, [])
 
   const scrollTo = (id) => {
     const el = document.querySelector(id)
@@ -93,13 +116,37 @@ export default function HomePage() {
               <button className="btn btn-primary" onClick={() => scrollTo('#contact')}>
                 Get a Quote <MS>arrow_forward</MS>
               </button>
-              <a
-                href="https://wa.me/254737654264?text=Hello%20Synergy%20Hub%20Africa!%20I'd%20like%20to%20inquire%20about%20your%20services."
-                target="_blank" rel="noopener noreferrer"
-                className="btn btn-whatsapp"
-              >
-                <MS fill={1}>chat</MS> WhatsApp Us
-              </a>
+              <div className="hero-wa-wrap" ref={waHeroRef}>
+                <button
+                  className={`btn btn-whatsapp${waHeroOpen ? ' open' : ''}`}
+                  onClick={() => setWaHeroOpen(o => !o)}
+                  aria-expanded={waHeroOpen}
+                  aria-haspopup="menu"
+                >
+                  <MS fill={1}>chat</MS> WhatsApp Us <MS fill={0}>arrow_drop_down</MS>
+                </button>
+                {waHeroOpen && (
+                  <div className="hero-wa-dropdown" role="menu" aria-label="WhatsApp contact options">
+                    {waOptions.map((o) => (
+                      <a
+                        key={o.label}
+                        href={o.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="nav-wa-option"
+                        role="menuitem"
+                        onClick={() => setWaHeroOpen(false)}
+                      >
+                        <span className="material-symbols-outlined">{o.icon}</span>
+                        <span className="nav-wa-option-text">
+                          {o.label}
+                          <small>{o.hint}</small>
+                        </span>
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
             </div>
           </div>
 
