@@ -28,13 +28,33 @@ export default function HomePage() {
     e.preventDefault()
     const f   = e.target
     const get = (n) => f.querySelector(`[name="${n}"]`)?.value || ''
-    const body = `Name: ${get('name')}\nEmail: ${get('email')}\nPhone: ${get('phone')}\nService: ${get('service')}\n\nMessage:\n${get('message')}`
-    window.open(
-      `mailto:synergyhubafrica@gmail.com?subject=New%20Inquiry%20from%20${encodeURIComponent(get('name'))}&body=${encodeURIComponent(body)}`,
-      '_blank'
-    )
+    const name    = get('name')
+    const body = `Name: ${name}\nEmail: ${get('email')}\nPhone: ${get('phone')}\nService: ${get('service')}\n\nMessage:\n${get('message')}`
+    const mailto = `mailto:synergyhubafrica@gmail.com?subject=New%20Inquiry%20from%20${encodeURIComponent(name)}&body=${encodeURIComponent(body)}`
+
+    // Try the native mail client, but watch for a blocked popup / missing client.
+    const opened = window.open(mailto, '_blank')
     const btn  = f.querySelector('button[type="submit"]')
     const orig = btn.innerHTML
+    const status = f.querySelector('[data-form-status]')
+
+    if (!opened) {
+      // No mail client or popup blocked — offer WhatsApp as a reliable fallback.
+      if (status) {
+        status.textContent = "Couldn't open your email app. Send via WhatsApp instead:"
+        status.classList.remove('form-status--ok')
+        status.classList.add('form-status--warn')
+      }
+      const wa = f.querySelector('[data-form-whatsapp]')
+      if (wa) wa.style.display = 'inline-flex'
+      return
+    }
+
+    if (status) {
+      status.textContent = "Sent! If your email app didn't open, use WhatsApp below."
+      status.classList.remove('form-status--warn')
+      status.classList.add('form-status--ok')
+    }
     btn.innerHTML = '<span class="material-symbols-outlined" style="font-variation-settings:\'FILL\' 1,\'wght\' 400,\'GRAD\' 0,\'opsz\' 24">check_circle</span> Sent!'
     btn.style.background = '#25d366'
     btn.style.color      = '#fff'
@@ -354,6 +374,16 @@ export default function HomePage() {
                 <button type="submit" className="btn btn-primary form-submit-btn">
                   Send Message <MS>send</MS>
                 </button>
+                <p className="form-status" data-form-status role="status" aria-live="polite"></p>
+                <p style={{ display: 'none' }} data-form-whatsapp>
+                  <a
+                    href="https://wa.me/254737654264?text=Hello%20Synergy%20Hub%20Africa!%20I'd%20like%20to%20inquire%20about%20a%20project."
+                    target="_blank" rel="noopener noreferrer"
+                    className="btn btn-whatsapp form-status-whatsapp"
+                  >
+                    <MS fill={1}>chat</MS> Send via WhatsApp
+                  </a>
+                </p>
               </form>
             </div>
 

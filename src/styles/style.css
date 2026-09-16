@@ -1299,6 +1299,34 @@ textarea {
 
 .form-group select option { background: var(--dark-3); color: var(--text); }
 
+.form-status {
+  display: none;
+  font-size: 0.82rem;
+  line-height: 1.6;
+  margin-top: 14px;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  background: var(--dark-3);
+  border: 1px solid var(--gold-border);
+  color: var(--text-mid);
+}
+
+.form-status--ok {
+  display: block;
+  color: var(--green);
+  border-color: rgba(37, 211, 102, 0.35);
+  background: rgba(37, 211, 102, 0.08);
+}
+
+.form-status--warn {
+  display: block;
+  color: var(--gold-light);
+  border-color: var(--gold-border);
+  background: var(--gold-subtle);
+}
+
+.form-status-whatsapp { margin-top: 10px; }
+
 /* ============================================
    FLOATING WHATSAPP
    ============================================ */
