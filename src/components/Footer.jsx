@@ -64,6 +64,9 @@ export default function Footer() {
               <a href="https://wa.me/254737654264" target="_blank" rel="noopener noreferrer">
                 <span className="material-symbols-outlined">chat</span>WhatsApp: +254 737 654264
               </a>
+              <a href="https://wa.me/254794980508" target="_blank" rel="noopener noreferrer">
+                <span className="material-symbols-outlined">chat</span>WhatsApp: +254 794 980 508
+              </a>
             </div>
           </div>
 
