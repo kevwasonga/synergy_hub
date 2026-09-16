@@ -877,6 +877,8 @@ textarea {
   justify-content: center;
   margin-bottom: 20px;
   transition: var(--trans);
+  position: relative;
+  z-index: 1;
 }
 
 .service-card:hover .service-icon-wrap {
@@ -900,12 +902,16 @@ textarea {
   font-weight: 700;
   color: var(--white);
   margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
 }
 
 .service-card p {
   font-size: 0.875rem;
   color: var(--text-mid);
   line-height: 1.75;
+  position: relative;
+  z-index: 1;
 }
 
 .service-num {
@@ -918,6 +924,7 @@ textarea {
   opacity: 0.06;
   line-height: 1;
   user-select: none;
+  z-index: 0;
 }
 
 /* Light break section — ivory white, used sparingly to break the dark monotony */
