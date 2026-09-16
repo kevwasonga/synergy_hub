@@ -148,6 +148,10 @@ textarea {
 
 .section-subtitle--left { margin-left: 0; text-align: left; }
 
+.section-title--light {
+  color: var(--text);
+}
+
 .section-divider {
   width: 48px;
   height: 3px;
@@ -418,6 +422,22 @@ textarea {
   box-shadow: 0 6px 20px rgba(200,169,110,0.28) !important;
 }
 
+/* Nav overlay (backdrop behind open mobile drawer) */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 998;
+  opacity: 0;
+  visibility: hidden;
+  transition: var(--trans);
+  -webkit-tap-highlight-color: transparent;
+}
+.nav-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
 /* Hamburger */
 .hamburger {
   display: flex;
@@ -582,8 +602,101 @@ textarea {
   margin-top: 6px;
 }
 
+/* Hero card panel (desktop right side) */
+.hero-card-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.hero-card-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px 24px;
+  background: rgba(16, 16, 16, 0.7);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius-md);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  cursor: pointer;
+  transition: var(--trans);
+}
+
+.hero-card-item:hover {
+  background: var(--gold-subtle);
+  border-color: var(--gold);
+  transform: translateX(6px);
+}
+
+.hero-card-icon {
+  width: 48px;
+  height: 48px;
+  min-width: 48px;
+  background: var(--gold-subtle);
+  border: 1px solid var(--gold-border);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-card-icon .material-symbols-outlined {
+  font-size: 24px;
+  color: var(--gold);
+  font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+}
+
+.hero-card-text {
+  flex: 1;
+}
+
+.hero-card-title {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 2px;
+}
+
+.hero-card-sub {
+  font-size: 0.82rem;
+  color: var(--text-mid);
+}
+
+.hero-card-arrow {
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: var(--trans);
+}
+
+.hero-card-item:hover .hero-card-arrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.hero-card-arrow .material-symbols-outlined {
+  font-size: 20px;
+  color: var(--gold);
+}
+
 /* ============================================
-   ABOUT
+    INNER PAGE HERO (no background image)
+   ============================================ */
+.hero--inner {
+  background: linear-gradient(160deg, var(--dark-2) 0%, var(--dark) 100%);
+  min-height: 50vh;
+}
+
+.hero--inner::before { display: none; }
+.hero--inner::after  { display: none; }
+
+.hero--inner .hero-title {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+}
+
+/* ============================================
+    ABOUT
    ============================================ */
 .about { background: var(--dark-2); }
 
